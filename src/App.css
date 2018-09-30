@@ -3,6 +3,11 @@
   border: 2px solid red;
 }
 
+.p{
+  border: 1px solid blue
+  
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
