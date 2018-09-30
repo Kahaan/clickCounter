@@ -1,34 +1,34 @@
-import React, { Component } from 'react';
-// import logo from './logo.svg';
-import './App.css';
-// import Abc from './Abc'
+import React, {Component} from 'react'
+import Count from './Count'
+import './App.css'
 
 class App extends Component {
   constructor(){
     super()
-    this.state = {count:1, previous:[]}
-    this.click = this.click.bind(this)
-    this.reset = this.reset.bind(this)
+    this.state = {count: 0, previous: []}
+    this.increment = this.increment.bind(this)
+    this.list = this.list.bind(this)
   }
 
-  click(event){
+  increment(event){
     event.preventDefault()
-    this.setState({count: this.state.count + 2})
+    this.setState({count: this.state.count + 1})
   }
 
-  reset(event){
+  list(event){
     event.preventDefault()
     const previous = this.state.previous
     previous.push(this.state.count)
-    this.setState({count: 0, previous:previous})
+    this.setState({count:0, previous:previous})
   }
 
-  render() {
+  render (){
     return (
-      <div className="App">
-        <button onClick={this.click}>CLick me!</button>
-        <button onClick={this.reset}>Reset</button>
-        <p className="p">{this.state.count}</p>
+      <div>
+        <button onClick={this.increment}>Increment</button>
+        <button onClick={this.list}>List previous counts</button>
+        <p>{this.state.count}</p>
+        <Count previous = {this.state.previous} />
       </div>
     );
   }
